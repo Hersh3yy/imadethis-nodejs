@@ -1,0 +1,20 @@
+{
+  "name": "imadethis-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@feathersjs/errors": "^3.3.6",
+    "@feathersjs/express": "^1.3.1",
+    "@feathersjs/feathers": "^3.3.1",
+    "feathers-sequelize": "^4.0.8",
+    "mysql2": "^1.6.4",
+    "sequelize": "^4.42.0"
+  }
+}

@@ -1,0 +1,3 @@
+runtime: nodejs10
+beta_settings:
+  cloud_sql_instances: [imadethis:europe-west1:imadethis-db]
