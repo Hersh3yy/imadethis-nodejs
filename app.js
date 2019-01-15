@@ -5,16 +5,13 @@ const express = require('@feathersjs/express');
 const app = express(feathers());
 
 const sequelize = new Sequelize('imadethis', 'root', 'imadethis', {
-    host: 'localhost',
+    host: '127.0.0.1',
     dialect: 'mysql',  
     pool: {
         max: 5,
         min: 0,
         acquire: 30000,
         idle: 10000
-    },
-    dialectOptions: {
-        socketPath: '/cloudsql/imadethis:europe-west1:imadethis-db',
     },
     operatorsAliases: false,
 });
@@ -30,10 +27,9 @@ const Entrees = sequelize.define('entrees', {
     chef: Sequelize.STRING,
     recipe_id: Sequelize.INTEGER,
     notes: Sequelize.STRING,
+    entree_name: Sequelize.STRING,
     //base64 enncoded
     image: Sequelize.TEXT,
-}, {
-    timestamps: false,
 })
 
 const Recipes = sequelize.define('recipes', {
@@ -55,12 +51,22 @@ const Steps = sequelize.define('steps', {
 const entrees = {
     find (params) {
         let query = params.query;
-        let entrees = Entrees.count({
+        let entrees = Entrees.findAll({
             where: query,
-            distinct: true,
-            col: 'id'
         });
         return Promise.resolve(entrees);
+    },
+    get (id, params) {
+        let entree = Entrees.findOne({
+            where: {
+                id: id
+            }
+        });
+        return Promise.resolve(entree);
+    },
+    create (data) {
+        let entree = Entrees.create(data);
+        return Promise.resolve(entree);
     }
 };
 
@@ -89,7 +95,7 @@ app.use('/entrees', entrees);
 app.use('/recipes', recipes);
 
 // Start the server
-const port = 8080;
+const port = 8000;
 
 app.listen(port, () => {
     console.log(`Feathers server listening on port ${port}`);
