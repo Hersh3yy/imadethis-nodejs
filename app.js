@@ -15,6 +15,14 @@ const sequelize = new Sequelize('imadethis', 'root', 'imadethis', {
     },
     operatorsAliases: false,
 });
+
+// Enable CORS
+app.use(function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+});
 // Turn on JSON parser for REST services
 app.use(express.json());
 // Turn on URL-encoded parser for REST services

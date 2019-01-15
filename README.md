@@ -7,6 +7,10 @@ App users can log their entrees. An entree is their attempt at making a recipe. 
 Users (preferibly with a higher role) can make a new recipe when making an entree or can choose from a list of existing entrees.
 
 
+To run:
+
+node app.js
+
 ## Intended use cases
 ![use cases](public/recipes_usecase.png)
 
