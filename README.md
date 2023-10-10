@@ -3,9 +3,7 @@ The frontend is a vue.js application. See: https://github.com/Hersh3yy/imadethis
 
 App users can log their entrees. An entree is their attempt at making a recipe. They can add their own personal note and an image of the result.
 
-Users (preferibly with a higher role) can make a new recipe when making an entree or can choose from a list of existing entrees.
-
-This app will be used to learn the Google Cloud Platform and will eventually be hosted there.
+Chefs (preferibly with a higher role) can make a new recipe when making an entree or can choose from a list of existing entrees.
 
 To run locally:
 
